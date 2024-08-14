@@ -14,10 +14,9 @@
   <script src="https://player.twitch.tv/js/embed/v1.js"></script>
 
   <script type="text/javascript">
-    fetch('https://api.twitch.tv/helix/streams', {
-        method: 'GET',
+    fetch('https://id.twitch.tv/oauth2/token', {
+        method: 'POST',
         headers: {
-          'Authorization': 'Bearer tdv4u2ufal2s8deor07onwaomte7k1',
           'Client-Id': 'ozvz2v72drsjcrn29yg26m15a1yg5r'
         }
       })
