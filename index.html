@@ -14,16 +14,26 @@
   <script src="https://player.twitch.tv/js/embed/v1.js"></script>
 
   <script type="text/javascript">
-    fetch('https://id.twitch.tv/oauth2/token', {
-        method: 'POST',
+    function checkStreamStatus() {
+      fetch('https://api.twitch.tv/helix/streams?user_login=otplol_', {
+        method: 'GET',
         headers: {
-          'Client-Id': 'ozvz2v72drsjcrn29yg26m15a1yg5r'
+          'Client-Id': '5qy56shg10z7dcdfxv2oawmhrai47j',
+          'Authorization': 'Bearer s20wjfl06ibwtw3sdnj015tqbm6e05',
         }
       })
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => {
+        console.log('Success:', data.data.length);
+        if (data.data.length !== 0) {
+          document.getElementById('twitch-embed').classList.add('online');
+        }
+      })
       .catch(error => console.error('Error:', error));
+    }
 
+    checkStreamStatus();
+    setInterval(checkStreamStatus, 1 * 60 * 1000);
   </script>
   
   <!-- Create a Twitch.Player object. This will render within the placeholder div -->
@@ -40,3 +50,4 @@
   </script>
 </body>
 </html>
+

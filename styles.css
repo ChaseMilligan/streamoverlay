@@ -1,0 +1,7 @@
+#twitch-embed {
+  display: none;
+}
+
+.online {
+  display: block !important;
+}
