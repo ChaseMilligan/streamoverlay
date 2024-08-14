@@ -19,8 +19,9 @@
   <script src="https://player.twitch.tv/js/embed/v1.js"></script>
 
   <script type="text/javascript">
+    const channelName = 'goopagames';
     function checkStreamStatus() {
-      fetch('https://api.twitch.tv/helix/streams?user_login=goopagames', {
+      fetch(`https://api.twitch.tv/helix/streams?user_login=${channelName}`, {
         method: 'GET',
         headers: {
           'Client-Id': '5qy56shg10z7dcdfxv2oawmhrai47j',
@@ -63,17 +64,14 @@
 
       // Usage: Replace 'yourElementId' and 'yourClassName' with the actual ID and class name
       scheduleClassToggle('twitch-embed', 'lights-off');
-  </script>
-  
-  <!-- Create a Twitch.Player object. This will render within the placeholder div -->
-  <script type="text/javascript">
-    var options = {
-      channel: "otplol_",
-      // only needed if your site is also embedded on embed.example.com and othersite.example.com
-      parent: ["chasemilligan.github.io"]
-    };
-    var player = new Twitch.Player("twitch-embed", options);
-    player.setVolume(1);
+
+      var options = {
+        channel: channelName,
+        // only needed if your site is also embedded on embed.example.com and othersite.example.com
+        parent: ["chasemilligan.github.io"]
+      };
+      var player = new Twitch.Player("twitch-embed", options);
+      player.setVolume(1);
   </script>
 </body>
 </html>
