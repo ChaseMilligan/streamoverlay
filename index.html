@@ -8,7 +8,12 @@
 </head>
 <body>
   <!-- Add a placeholder for the Twitch embed -->
-  <div id="twitch-embed"></div>
+  <div class="info-container">
+    <h1>WCC Big Bud AUTO</h1>
+  </div>
+  <div id="twitch-embed">
+    <p>twitch.tv/goopagames</p>
+  </div>
   
   <!-- Load the Twitch embed script -->
   <script src="https://player.twitch.tv/js/embed/v1.js"></script>
@@ -34,13 +39,35 @@
 
     checkStreamStatus();
     setInterval(checkStreamStatus, 1 * 60 * 1000);
+
+    function scheduleClassToggle(elementId, className) {
+        const element = document.getElementById(elementId);
+
+        function toggleClass() {
+          const now = new Date();
+          const currentHour = now.getHours();
+
+          if (currentHour >= 19 || currentHour < 7) {
+            element.classList.add(className);
+          } else {
+            element.classList.remove(className);
+          }
+        }
+
+        // Initial check when the page loads
+        toggleClass();
+
+        // Check every minute to ensure the class is toggled at the right time
+        setInterval(toggleClass, 60000); // 60000ms = 1 minute
+      }
+
+      // Usage: Replace 'yourElementId' and 'yourClassName' with the actual ID and class name
+      scheduleClassToggle('twitch-embed', 'lights-off');
   </script>
   
   <!-- Create a Twitch.Player object. This will render within the placeholder div -->
   <script type="text/javascript">
     var options = {
-      width: '1080',
-      height: '720',
       channel: "otplol_",
       // only needed if your site is also embedded on embed.example.com and othersite.example.com
       parent: ["chasemilligan.github.io"]
