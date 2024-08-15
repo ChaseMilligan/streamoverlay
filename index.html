@@ -52,6 +52,8 @@
           console.log('New deployment detected!');
           lastGithubDeployment = data.updated_at;
           window.location.reload();
+        } else {
+          console.log('No new deployment detected.');
         }
 
         if (data.status === 'built') {
@@ -65,6 +67,7 @@
     }
 
     getPagesDeploymentStatus();
+    setInterval(getPagesDeploymentStatus, 1 * 60 * 1000);
 
 
     function checkStreamStatus() {
