@@ -16,14 +16,17 @@
     <p>Come back tomorrow!</p>
   </div>
   <div id="twitch-embed">
-    <p>Lights are out! You are watching twitch.tv/goopagames</p>
+    <div class="alert-ticker">
+      <p>You are watching twitch.tv/goopagames</p>
+      <p>You are watching twitch.tv/goopagames</p>
+    </div>
   </div>
   
   <!-- Load the Twitch embed script -->
   <script src="https://player.twitch.tv/js/embed/v1.js"></script>
 
   <script type="text/javascript">
-    const channelName = 'goopagames';
+    const channelName = 'otplol_';
     function checkStreamStatus() {
       fetch(`https://api.twitch.tv/helix/streams?user_login=${channelName}`, {
         method: 'GET',
@@ -54,7 +57,7 @@
           const now = new Date();
           const currentHour = now.getHours();
 
-          if (currentHour >= 19 || currentHour < 7) {
+          if (currentHour >= 8 || currentHour < 7) {
             element.classList.add(className);
 
           } else {

@@ -22,20 +22,50 @@ body {
   max-height: 100vh;
 }
 
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
 #twitch-embed p {
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  width: 100%;
+  animation: marquee 10s linear infinite;
+}
+
+#twitch-embed.lights-off p {
+  font-size: 3rem;
+}
+
+#twitch-embed.lights-off p::before {
+  content: 'Lights Out! - ';
+}
+
+.alert-ticker {
   position: absolute;
   left: 0;
   bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
   background-color: rgba(255, 0, 0, 1);
-  color: white;
-  font-size: 3.5rem;
-  font-weight: bold;
-  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
   padding: 8px;
-  margin: 0;
+}
+
+#twitch-embed.lights-off .alert-ticker {
+  position: relative;
 }
 
 iframe {
@@ -44,7 +74,8 @@ iframe {
 }
 
 .online {
-  display: block !important;
+  display: flex !important;
+  flex-direction: column;
 }
 
 h1 {
