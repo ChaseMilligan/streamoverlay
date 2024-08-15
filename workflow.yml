@@ -1,0 +1,9 @@
+# sample workflow snippet
+steps:
+  - name: Add env secret
+    env:
+      token:
+        ${{ secrets.MY_SECRET }}
+        # deploy token is used to build and deploy to a gh-pages branch
+        # (needs permission to create a branch, build the app and modify that branch,
+        # push changes to that branch, and deploy to github pages)
