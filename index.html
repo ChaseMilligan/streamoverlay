@@ -10,6 +10,7 @@
   <!-- Add a placeholder for the Twitch embed -->
   <div class="info-container">
     <h1>WCC Big Bud AUTO!</h1>
+    <p class="msg">Fetching...</p>
   </div>
   <div id="lights-out">
     <h1><span class="fast-flicker">L</span>igh<span class="mid-flicker">t</span>s O<span class="flicker">u</span>t<span class="fast-flicker">!</span></h1>
@@ -34,6 +35,9 @@
     const token = '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';         // Optional: GitHub Personal Access Token
 
     async function getPagesDeploymentStatus() {
+      const msgElement = document.querySelector('.msg');
+      console.log('Checking deployment status...');
+      msgElement.textContent = 'Checking deployment status...';
       const url = `https://api.github.com/repos/${repoOwner}/${repoName}/pages/builds/latest`;
       const headers = token ? { 'Authorization': `token ${token}` } : {};
 
@@ -48,12 +52,15 @@
 
         if (!lastGithubDeployment) {
           lastGithubDeployment = data.updated_at;
+          msgElement.textContent = 'Checked';
         } else if (lastGithubDeployment !== data.updated_at) {
           console.log('New deployment detected!');
           lastGithubDeployment = data.updated_at;
+          msgElement.textContent = 'New deployment detected!';
           window.location.reload();
         } else {
           console.log('No new deployment detected.');
+          msgElement.textContent = 'No new deployment detected.';
         }
 
         if (data.status === 'built') {
