@@ -156,7 +156,7 @@ h1 {
 
   82%,
   97% {
-    color: rgba(0, 0, 0, 0);
+    color: rgba(#fff024, 0.1);
     text-shadow: none;
   }
 }
