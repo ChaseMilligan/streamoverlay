@@ -33,6 +33,8 @@
         console.log('Success:', data.data.length);
         if (data.data.length !== 0) {
           document.getElementById('twitch-embed').classList.add('online');
+        } else {
+          document.getElementById('twitch-embed').classList.remove('online');
         }
       })
       .catch(error => console.error('Error:', error));
