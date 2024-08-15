@@ -66,11 +66,13 @@ body {
 
 #twitch-embed.lights-off .alert-ticker {
   position: relative;
+  height: 74px;
 }
 
 iframe {
   width: 100%;
-  height: -webkit-fill-available;
+  height: 100%;
+  max-height: calc(100vh - 74px);
 }
 
 .online {
