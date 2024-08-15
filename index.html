@@ -11,8 +11,12 @@
   <div class="info-container">
     <h1>WCC Big Bud AUTO</h1>
   </div>
+  <div id="lights-out">
+    <h1>Lights Out!</h1>
+    <p>Come back tomorrow!</p>
+  </div>
   <div id="twitch-embed">
-    <p>twitch.tv/goopagames</p>
+    <p>Lights are out! You are watching twitch.tv/goopagames</p>
   </div>
   
   <!-- Load the Twitch embed script -->
@@ -52,6 +56,7 @@
 
           if (currentHour >= 19 || currentHour < 7) {
             element.classList.add(className);
+
           } else {
             element.classList.remove(className);
           }
@@ -66,6 +71,7 @@
 
       // Usage: Replace 'yourElementId' and 'yourClassName' with the actual ID and class name
       scheduleClassToggle('twitch-embed', 'lights-off');
+      scheduleClassToggle('lights-out', 'active');
 
       var options = {
         channel: channelName,

@@ -29,9 +29,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 0, 0, 1);
   color: white;
-  font-size: 1.5rem;
+  font-size: 3.5rem;
   font-weight: bold;
   text-align: center;
   padding: 8px;
@@ -60,4 +60,23 @@ h1 {
   top: 0;
   left: 0;
   padding: 16px;
+}
+
+#lights-out {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  display: none;
+}
+
+#lights-out.active {
+  display: block;
+}
+
+#lights-out p {
+  font-weight: 700;
+  text-shadow: 0px 0px 4px rgba(0, 0, 0, 1);
+  color: #fff;
 }
