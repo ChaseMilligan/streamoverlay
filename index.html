@@ -32,7 +32,7 @@
 
     const repoOwner = 'chasemilligan';  // Replace with the GitHub username or organization
     const repoName = 'streamoverlay';       // Replace with the repository name
-    const token = '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';         // Optional: GitHub Personal Access Token
+    const token = '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';         // Optional: GitHub Personal Access Token
 
     async function getPagesDeploymentStatus() {
       const msgElement = document.querySelector('.msg');
@@ -49,6 +49,7 @@
 
         const data = await response.json();
         console.log('Deployment Status:', data);
+        console.log(lastGithubDeployment);
 
         if (!lastGithubDeployment) {
           lastGithubDeployment = data.updated_at;
