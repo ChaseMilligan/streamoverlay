@@ -12,8 +12,8 @@
     <h1>WCC Big Bud AUTO</h1>
   </div>
   <div id="lights-out">
-    <h1>Lights Out!</h1>
-    <p>Come back tomorrow!</p>
+    <h1><span class="fast-flicker">L</span>igh<span class="mid-flicker">t</span>s O<span class="flicker">u</span>t<span class="fast-flicker">!</span></h1>
+    <p>C<span class="fast-flicker">o</span>me <span class="flicker">b</span>a<span class="mid-flicker">c</span>k to<span class="fast-flicker">m</span>or<span class="flicker">r</span>ow<span class="mid-flicker">!</span></p>
   </div>
   <div id="twitch-embed">
     <div class="alert-ticker">
@@ -57,7 +57,7 @@
           const now = new Date();
           const currentHour = now.getHours();
 
-          if (currentHour >= 19 || currentHour < 7) {
+          if (currentHour >= 8 || currentHour < 7) {
             element.classList.add(className);
 
           } else {
