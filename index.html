@@ -60,9 +60,11 @@
           const currentHour = now.getHours();
           const currentMinute = now.getMinutes();
 
-          if ((currentHour >= 18 && currentMinute >= 40) || (currentHour < 6 && currentMinute < 40)) {
-            element.classList.add(className);
+          console.log(currentHour, currentMinute);
 
+          if (((currentHour >= 18 && currentMinute >= 40) || currentHour >= 19) || ((currentHour < 6 && currentMinute < 40) || currentHour < 7)) {
+            element.classList.add(className);
+            console.log('Adding class');
           } else {
             element.classList.remove(className);
           }
