@@ -22,7 +22,7 @@ body {
   max-height: 100vh;
 }
 
-@keyframes marquee {
+/* @keyframes marquee {
   from {
     transform: translateX(0%);
   }
@@ -30,7 +30,7 @@ body {
   to {
     transform: translateX(-100%);
   }
-}
+} */
 
 #twitch-embed p {
   color: white;
