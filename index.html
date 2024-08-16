@@ -28,6 +28,23 @@
   <script type="text/javascript">
     let lastGithubDeployment;
     const channelName = 'goopagames';
+    const strainName = 'big-bud';
+
+    function getLeaflyData() {
+      fetch(`https://www.leafly.ca/strains/${strainName}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+      })
+      .catch(error => console.error('Error:', error));
+    }
+
+    getLeaflyData();
 
     function checkStreamStatus() {
       fetch(`https://api.twitch.tv/helix/streams?user_login=${channelName}`, {
@@ -39,7 +56,6 @@
       })
       .then(response => response.json())
       .then(data => {
-        console.log('Success:', data.data.length);
         if (data.data.length !== 0) {
           document.getElementById('twitch-embed').classList.add('online');
         } else {
@@ -60,11 +76,8 @@
           const currentHour = now.getHours();
           const currentMinute = now.getMinutes();
 
-          console.log(currentHour, currentMinute);
-
           if (((currentHour >= 18 && currentMinute >= 40) || currentHour >= 19) || ((currentHour < 6 && currentMinute < 40) || currentHour < 7)) {
             element.classList.add(className);
-            console.log('Adding class');
           } else {
             element.classList.remove(className);
           }
