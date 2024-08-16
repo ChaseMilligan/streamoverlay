@@ -31,7 +31,7 @@
     const strainName = 'big-bud';
 
     function getLeaflyData() {
-      fetch(`https://www.leafly.ca/strains/${strainName}`, {
+      fetch(`https://cors-anywhere.herokuapp.com/https://www.leafly.ca/strains/${strainName}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
