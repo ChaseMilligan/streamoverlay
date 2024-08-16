@@ -58,8 +58,9 @@
         function toggleClass() {
           const now = new Date();
           const currentHour = now.getHours();
+          const currentMinute = now.getMinutes();
 
-          if (currentHour >= 19 || currentHour < 7) {
+          if ((currentHour >= 18 && currentMinute >= 40) || (currentHour < 6 && currentMinute < 40)) {
             element.classList.add(className);
 
           } else {
