@@ -4,12 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GOOPA STREAM OVERLAY</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <!-- Add a placeholder for the Twitch embed -->
   <div class="info-container">
-    <h1>WCC Big Bud AUTO</h1>
+    <h1>Holy Cream AUTO</h1>
+    <hr/>
+    <div>
+      <p>Day: <span id="days-display"></span></p>
+      <p>Growth Stage: Seed</p>
+      <p>Light Intensity: 30%</p>
+    </div>
   </div>
   <div id="lights-out">
     <h1><span class="fast-flicker">L</span>igh<span class="mid-flicker">t</span>s O<span class="flicker">u</span>t<span class="fast-flicker">!</span></h1>
@@ -26,27 +36,7 @@
   <script src="https://player.twitch.tv/js/embed/v1.js"></script>
 
   <script type="text/javascript">
-    let lastGithubDeployment;
     const channelName = 'goopagames';
-    const strainName = 'big-bud';
-
-    function getLeaflyData() {
-      fetch(`https://cors-anywhere.herokuapp.com/https://www.leafly.ca/strains/${strainName}`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-          'mode': 'no-cors'
-        }
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Success:', data);
-      })
-      .catch(error => console.error('Error:', error));
-    }
-
-    getLeaflyData();
 
     function checkStreamStatus() {
       fetch(`https://api.twitch.tv/helix/streams?user_login=${channelName}`, {
@@ -69,6 +59,20 @@
 
     checkStreamStatus();
     setInterval(checkStreamStatus, 1 * 60 * 1000);
+
+    function calculateDaysPassed(startDate) {
+      const oneDay = 24 * 60 * 60 * 1000; // hours * minutes * seconds * milliseconds
+      const currentDate = new Date();
+      const start = new Date(startDate);
+      const daysPassed = Math.round(Math.abs((currentDate - start) / oneDay));
+      return daysPassed;
+    }
+
+    // Usage: Replace 'yourStartDate' with the actual start date in the format 'YYYY-MM-DD'
+    const startDate = '2024-08-22';
+    const daysPassed = calculateDaysPassed(startDate);
+    document.getElementById('days-display').textContent = daysPassed;
+    
 
     function scheduleClassToggle(elementId, className) {
         const element = document.getElementById(elementId);
