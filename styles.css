@@ -102,6 +102,7 @@ h1 {
   top: 0;
   left: 0;
   padding: 16px;
+  z-index: 1;
 }
 
 .info-container div {
@@ -125,6 +126,18 @@ h1 {
   transform: translate(-50%, -50%);
   text-align: center;
   display: none;
+}
+
+#lights-out::after {
+  content: '';
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0);
+  z-index: -1;
 }
 
 #lights-out.active {
