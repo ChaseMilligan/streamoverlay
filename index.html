@@ -82,7 +82,10 @@
           const currentHour = now.getHours();
           const currentMinute = now.getMinutes();
 
+          console.log(currentHour, currentMinute);
+
           if (currentHour >= 0 && currentHour < 6) {
+            console.log('Lights off');
             element.classList.add(className);
           } else {
             element.classList.remove(className);
