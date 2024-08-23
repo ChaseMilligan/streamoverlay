@@ -18,7 +18,7 @@
     <div>
       <p>Day: <span id="days-display"></span></p>
       <p>Growth Stage: Seed</p>
-      <p>Light Intensity: 30%</p>
+      <p>Light Intensity: 25%</p>
     </div>
   </div>
   <div id="lights-out">
@@ -82,7 +82,10 @@
           const currentHour = now.getHours();
           const currentMinute = now.getMinutes();
 
-          if (currentHour >= 0 && currentHour < 15) {
+          console.log(currentHour, currentMinute);
+
+          if (currentHour >= 0 && currentHour < 6) {
+            console.log('Lights off');
             element.classList.add(className);
           } else {
             element.classList.remove(className);
