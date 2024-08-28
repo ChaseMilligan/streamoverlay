@@ -62,6 +62,7 @@ body {
   white-space: nowrap;
   box-sizing: border-box;
   padding: 8px;
+  font-family: "Archivo Black", sans-serif;
 }
 
 #twitch-embed.lights-off .alert-ticker {
