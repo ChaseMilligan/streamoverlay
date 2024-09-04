@@ -72,6 +72,10 @@
     const startDate = '2024-08-22';
     const daysPassed = calculateDaysPassed(startDate);
     document.getElementById('days-display').textContent = daysPassed;
+    setInterval(() => {
+      const daysPassed = calculateDaysPassed(startDate);
+      document.getElementById('days-display').textContent = daysPassed;
+    }, 1 * 60 * 60 * 1000); // 1 hour
     
 
     function scheduleClassToggle(elementId, className) {
